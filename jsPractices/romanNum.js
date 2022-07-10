@@ -36,7 +36,7 @@ let rStrCnst = (str, start, end, rE) => {
 }
 
 (function convertRoman(dNum){
-    let rStr = "";
+    let rStr = '';
 	let whole;
 	
 
@@ -45,7 +45,7 @@ let rStrCnst = (str, start, end, rE) => {
 	if (dNum > 1000 && !stdNum.includes(dNum)) {
 		whole = Math.floor(dNum/1000);
 		dNum %= 1000;
-		rStr = rStrCnst(rStr, 0, whole, "thousand")
+		rStr = rStrCnst(rStr, 0, whole, 'thousand')
 	}
 	if (dNum > 500 && !stdNum.includes(dNum)) {
 		if (dNum > 900) {
@@ -55,18 +55,18 @@ let rStrCnst = (str, start, end, rE) => {
 		} else {
 			whole = Math.floor(dNum/500);
 			dNum %= 500;
-			rStr = rStrCnst(rStr, 0, whole, "hundreds")
+			rStr = rStrCnst(rStr, 0, whole, 'hundreds')
 		}
 	}
 	if (dNum > 100 && !stdNum.includes(dNum)) {
 		if (dNum > 400) {
 			whole = 1;
 			dNum -= 400;
-			rStr = rStrCnst(rStr, 0, whole, "hundreds4");
+			rStr = rStrCnst(rStr, 0, whole, 'hundreds4');
 		} else {
 			whole = Math.floor(dNum/100);
 			dNum %= 100;
-			rStr = rStrCnst(rStr, 0, whole, "hundred")
+			rStr = rStrCnst(rStr, 0, whole, 'hundred')
 		}
 	}
     if ( dNum > 50 && !stdNum.includes(dNum)) {
@@ -77,7 +77,7 @@ let rStrCnst = (str, start, end, rE) => {
     	} else {	
         	whole = Math.floor(dNum/50);
         	dNum %= 50;
-        	rStr = rStrCnst(rStr, 0, whole, "fifty");
+        	rStr = rStrCnst(rStr, 0, whole, 'fifty');
     	}
     }
     if (dNum > 10 && !stdNum.includes(dNum)) {
@@ -88,18 +88,18 @@ let rStrCnst = (str, start, end, rE) => {
     	} else {
         	whole = Math.floor(dNum/10);
         	dNum %= 10;
-        	rStr = rStrCnst(rStr, 0, whole, "ten");
+        	rStr = rStrCnst(rStr, 0, whole, 'ten');
     	}
     	console.log(rStr)
     }
     if (dNum > 5 && !stdNum.includes(dNum)) {
         whole = Math.floor(dNum/5);
         dNum %= 5;
-        rStr = rStrCnst(rStr, 0, whole, "five");
+        rStr = rStrCnst(rStr, 0, whole, 'five');
         //console.log(rStr)
     } 
     if (dNum < 4 && dNum && dNum != 1) {
-		rStr = rStrCnst(rStr, 0, dNum, "one");
+		rStr = rStrCnst(rStr, 0, dNum, 'one');
     }	
 	if (stdNum.includes(dNum)){
 		//console.log(rStr)
