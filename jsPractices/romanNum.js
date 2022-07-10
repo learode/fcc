@@ -1,15 +1,19 @@
 "use strict";
 
 const std = {
-	 one: "I",
-	four: "IV",
-	five: "V",
-	nine: "IX",
-	 ten: "X",
-   forty: "XL",
-   fifty: "L",
-   ninty: "XC",
- hundred: "C"
+	   one: "I",
+	  four: "IV",
+	  five: "V",
+	  nine: "IX",
+	   ten: "X",
+     forty: "XL",
+     fifty: "L",
+     ninty: "XC",
+   hundred: "C",
+ hundreds4: "CD",
+  hundreds: "D",
+thousands9: "CM",
+ thousands: "m"
 };
 const stdNum = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
 
@@ -34,14 +38,32 @@ let rStrCnst = (str, start, end, rE) => {
 (function convertRoman(dNum){
     let rStr = "";
 	let whole;
-	let rv;
+	
 
+
+
+	if (dNum > 1000 && !stdNum.includes(dNum)) {
+		whole = Math.floor(dNum/1000);
+		dNum %= 1000;
+		rStr = rStrCnst(rStr, 0, whole, "thousand")
+	}
+	if (dNum > 500 && !stdNum.includes(dNum)) {
+		whole = Math.floor(dNum/100);
+		dNum %= 500;
+		rStr = rStrCnst(rStr, 0, whole, "5hundred")
+	}
+	if (dNum > 100 && !stdNum.includes(dNum)) {
+		whole = Math.floor(dNum/100);
+		dNum %= 100;
+		rStr = rStrCnst(rStr, 0, whole, "hundred")
+	}
     if ( dNum > 50 && !stdNum.includes(dNum)) {
         whole = Math.floor(dNum/50);
         dNum %= 50;
         rStr = rStrCnst(rStr, 0, whole, "fifty");
     }
     if (dNum > 10 && !stdNum.includes(dNum)) {
+    	console.log(rStr)
         whole = Math.floor(dNum/10);
         dNum %= 10;
         rStr = rStrCnst(rStr, 0, whole, "ten");
@@ -62,4 +84,4 @@ let rStrCnst = (str, start, end, rE) => {
     }
 	console.log(rStr)
 	//console.log(e)
-})(76);
+})(42);
